@@ -1,5 +1,5 @@
 ﻿
-var stack = new Stack();
+/*var stack = new Stack();
 stack.Push(1);
 stack.Push(3);
 stack.Push(5);
@@ -7,6 +7,9 @@ stack.Push(5);
 Console.WriteLine(stack.Pop()); // 5
 Console.WriteLine(stack.Peek()); // 3
 Console.WriteLine(stack.Pop()); // 3
+*/
+
+Console.WriteLine(Exercises.RemoveDupes("xyzzy"));
 
 public class Stack
 {
@@ -27,5 +30,18 @@ public class Stack
     public int Peek()
     {
         return _stack.Last();
+    }
+}
+
+class Exercises
+{
+    public static string RemoveDupes(string str)
+    {
+        var set = new HashSet<char>();
+        foreach (var s in str)
+        {
+            set.Add(s);
+        }
+        return string.Join("", set);
     }
 }
