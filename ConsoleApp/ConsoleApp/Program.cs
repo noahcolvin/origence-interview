@@ -9,7 +9,8 @@ Console.WriteLine(stack.Peek()); // 3
 Console.WriteLine(stack.Pop()); // 3
 */
 
-Console.WriteLine(Exercises.RemoveDupes("xyzzy"));
+Console.WriteLine(Exercises.RemoveDupeLetters("xyzzy"));
+Console.WriteLine(Exercises.RemoveDupeWords("the quick brown fox jumps over the lazy dog the quick brown fox jumps over the lazy dog"));
 
 public class Stack
 {
@@ -35,7 +36,7 @@ public class Stack
 
 class Exercises
 {
-    public static string RemoveDupes(string str)
+    public static string RemoveDupeLetters(string str)
     {
         var set = new HashSet<char>();
         foreach (var s in str)
@@ -43,5 +44,15 @@ class Exercises
             set.Add(s);
         }
         return string.Join("", set);
+    }
+
+    public static string RemoveDupeWords(string str)
+    {
+        var set = new HashSet<string>();
+        foreach (var s in str.Split(" "))
+        {
+            set.Add(s);
+        }
+        return string.Join(" ", set);
     }
 }
